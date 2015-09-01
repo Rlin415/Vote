@@ -1,22 +1,34 @@
 'use strict';
 
 angular.module('voteAppApp')
-  .controller('MainCtrl', function ($scope, $http) {
-    $scope.awesomeThings = [];
+  .controller('MainCtrl', function ($scope, $http, Auth, $location) {
+    $scope.description = [];
+    $scope.newPoll = false;
+    $scope.poll = {};
+    $scope.errors = {};
 
-    $http.get('/api/things').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
+    Auth.isLoggedInAsync(function(bool) {
+      $scope.isLoggedIn = bool;
     });
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
-        return;
-      }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
-    };
+    $scope.description.push($scope.poll = {
+      img: '/assets/images/prepper-polls-surveys.png',
+      alt: 'polls',
+      title: 'Live Results',
+      descrip: 'Receive live data of your active polls'
+    });
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
-    };
+    $scope.description.push($scope.globe = {
+      img: '/assets/images/globe.jpg',
+      alt: 'globe',
+      title: 'Works Everywhere',
+      descrip: 'Our polls work tablets, smartphones, netbooks, and notebooks'
+    });
+
+    $scope.description.push($scope.globe = {
+      img: '/assets/images/twitter.png',
+      alt: 'twitter',
+      title: 'Social Integration',
+      descrip: 'Social share buttons encourage poll voters to spread the word'
+    });
   });
