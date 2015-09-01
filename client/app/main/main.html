@@ -1,13 +1,13 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<!------------Hide when user is logged in-------------->
-<header class='jumbotron' ng-hide='isLoggedIn()'>
+<!---Hide when user is logged in--->
+<header class='jumbotron' ng-hide='isLoggedIn'>
     <h1>Track Your Polls</h1>
     <p>Create custom polls with live results</p>
 </header>
 
-<!---------------Show when user is logged in------------->
-<div class='jumbotron' ng-show='isLoggedIn()'>
+<!---Show when user is logged in--->
+<div class='jumbotron' ng-show='isLoggedIn'>
   <h1>Welcome to Your Dashboard!</h1>
   <a href='/newpoll' class='btn btn-primary'>New Poll</a>
   <button type='button' class='btn btn-info'>Polls</button>
@@ -22,19 +22,3 @@
     </div>
   </div>
 </div>
-
-<!------------------Show poll form when user clicks New Poll
-<form ng-show='newPoll' name='poll' ng-submit='register(poll)'>
-    <h2>New Poll</h2>
-    <div class='form-group'>
-        <label for='namingNewPoll'>Name your poll</label>
-        <input type='text' class='form-control' name='topic' ng-model='topic' placeholder='Portland or Seattle?'>
-    </div>
-    <div class='form-group'>
-        <label for='creatingChoic'>Options</label>
-        <input type='text' class='form-control' name='choice1' ng-model='choice1' placeholder='Portland'>
-        <input type='text' class='form-control' name='choice2' ng-model='choice2' placeholder='Seattle'>
-    </div>
-    <input type='button' class='btn btn-default btn-block' value='More Options'>
-    <input type='submit' class='btn btn-success btn-block disabled' value='Submit'>
-</form>------------!>

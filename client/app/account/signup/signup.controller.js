@@ -16,7 +16,7 @@ angular.module('voteAppApp')
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/');
+          $location.path('/newpoll');
         })
         .catch( function(err) {
           err = err.data;

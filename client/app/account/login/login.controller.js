@@ -15,7 +15,7 @@ angular.module('voteAppApp')
         })
         .then( function() {
           // Logged in, redirect to home
-          $location.path('/');
+          $location.path('/newpoll');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

@@ -3,11 +3,7 @@
 angular.module('voteAppApp')
   .controller('MainCtrl', function ($scope, $http, Auth) {
     $scope.description = [];
-    $scope.newPoll = false;
-    $scope.poll = {};
-    $scope.errors = {};
-
-    $scope.isLoggedIn = Auth.isLoggedIn;
+    $scope.isLoggedIn = Auth.isLoggedIn();
 
     $scope.description.push($scope.poll = {
       img: '/assets/images/prepper-polls-surveys.png',
@@ -29,4 +25,6 @@ angular.module('voteAppApp')
       title: 'Social Integration',
       descrip: 'Social share buttons encourage poll voters to spread the word'
     });
+
+
   });
