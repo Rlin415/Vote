@@ -1,23 +1,18 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <!------------Hide when user is logged in-------------->
-<div id='coverPage' ng-hide='isLoggedIn'>
-  <div class="jumbotron">
+<header class='jumbotron' ng-hide='isLoggedIn()'>
     <h1>Track Your Polls</h1>
     <p>Create custom polls with live results</p>
-  </div>
-</div>
+</header>
 
 <!---------------Show when user is logged in------------->
-<div id='userPage' ng-show='isLoggedIn'>
-  <div class='jumbotron'>
-    <h1>Welcome to Your Dashboard!</h1>
-    <button type='button' class='btn btn-primary' ng-click='createPoll()'>New Poll</button>
-    <button type='button' class='btn btn-info' ng-click='showPolls()'>Polls</button>
-  </div>
+<div class='jumbotron' ng-show='isLoggedIn()'>
+  <h1>Welcome to Your Dashboard!</h1>
+  <a href='/newpoll' class='btn btn-primary'>New Poll</a>
+  <button type='button' class='btn btn-info'>Polls</button>
 </div>
 
-<!--------------Hide when user clicks New Poll-------------->
 <div class='container'>
   <div class='row'>
     <div class='col-md-4' ng-repeat='data in description'>

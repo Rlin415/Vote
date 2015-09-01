@@ -1,15 +1,13 @@
 'use strict';
 
 angular.module('voteAppApp')
-  .controller('MainCtrl', function ($scope, $http, Auth, $location) {
+  .controller('MainCtrl', function ($scope, $http, Auth) {
     $scope.description = [];
     $scope.newPoll = false;
     $scope.poll = {};
     $scope.errors = {};
 
-    Auth.isLoggedInAsync(function(bool) {
-      $scope.isLoggedIn = bool;
-    });
+    $scope.isLoggedIn = Auth.isLoggedIn;
 
     $scope.description.push($scope.poll = {
       img: '/assets/images/prepper-polls-surveys.png',
