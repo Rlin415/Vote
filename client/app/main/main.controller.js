@@ -9,21 +9,22 @@ angular.module('voteAppApp')
       img: '/assets/images/prepper-polls-surveys.png',
       alt: 'polls',
       title: 'Live Results',
-      descrip: 'Receive live data of your active polls'
+      descrip: 'Receive live data of your active polls.'
     });
 
     $scope.description.push($scope.globe = {
       img: '/assets/images/globe.jpg',
       alt: 'globe',
       title: 'Works Everywhere',
-      descrip: 'Our polls work tablets, smartphones, netbooks, and notebooks'
+      descrip: 'Our responsive design layout will allow everyone around you\
+                to view your polls with any device they like.'
     });
 
     $scope.description.push($scope.globe = {
       img: '/assets/images/twitter.png',
       alt: 'twitter',
       title: 'Social Integration',
-      descrip: 'Social share buttons encourage poll voters to spread the word'
+      descrip: 'Social share buttons encourage poll voters to spread the word.'
     });
 
 
