@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('voteAppApp')
-  .controller('DisplayCtrl', function ($scope, $http, User, Auth, $routeParams) {
-    var user = $routeParams.user;
+  .controller('DisplayCtrl', function ($scope, $http, Auth, $routeParams) {
     var pollid = $routeParams.pollid;
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.formData = {};
@@ -15,11 +14,11 @@ angular.module('voteAppApp')
       labels: [],
       datasets: [
           {
-              label: "My First dataset",
-              fillColor: "rgba(220,220,220,0.5)",
-              strokeColor: "rgba(220,220,220,0.8)",
-              highlightFill: "rgba(220,220,220,0.75)",
-              highlightStroke: "rgba(220,220,220,1)",
+              label: 'My First dataset',
+              fillColor: 'rgba(220,220,220,0.5)',
+              strokeColor: 'rgba(220,220,220,0.8)',
+              highlightFill: 'rgba(220,220,220,0.75)',
+              highlightStroke: 'rgba(220,220,220,1)',
               data: []
           }
         ]
@@ -40,7 +39,7 @@ angular.module('voteAppApp')
     });
 
     $scope.vote = function() {
-      if ($scope.poll.voted.indexOf($scope.getCurrentUser._id == -1 && $scope.formData.selection != undefined && $scope.isLoggedIn)) {
+      if ($scope.poll.voted.indexOf($scope.getCurrentUser._id === -1 && $scope.formData.selection !== undefined && $scope.isLoggedIn)) {
         $scope.poll.voted.push($scope.getCurrentUser._id);
         $scope.poll.choices[$scope.formData.selection].votes++;
         //update bar chart here
@@ -48,8 +47,9 @@ angular.module('voteAppApp')
         myBarChart.update();
 
         $http.patch('/api/polls/' + pollid, {choices: [{name: $scope.poll.choices[$scope.formData.selection].name, votes: $scope.poll.choices[$scope.formData.selection].votes}]}).then(function(poll) {
+          $scope.poll = poll
         });
-      };
+      }
     };
 
   });

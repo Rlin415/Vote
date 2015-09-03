@@ -16,8 +16,8 @@ angular.module('voteAppApp')
       img: '/assets/images/globe.jpg',
       alt: 'globe',
       title: 'Works Everywhere',
-      descrip: 'Our responsive design layout will allow everyone around you\
-                to view your polls with any device they like.'
+      descrip: 'Our responsive design layout will allow everyone around you' +
+      'to view your polls with any device they like.'
     });
 
     $scope.description.push($scope.globe = {
