@@ -1,9 +1,5 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<head>
-  <script src="Chart.js"></script>
-</head>
-
 <header>
   <div class='jumbotron'>
     <h1>Check Out Your Live Polls!</h1>
@@ -19,7 +15,7 @@
       <h3>by {{poll.user}}</h3>
 
       <div id='chart' ng-hide='poll.voted.length===0' class='center-block'>
-        <canvas id="myChart" width="400" height="400"></canvas>
+        <canvas id="myBarChart" width="400" height="400"></canvas>
       </div>
       <form ng-submit='vote()' ng-show='poll.voted.indexOf(getCurrentUser._id) === -1 && isLoggedIn'>
         <div class='radio' ng-repeat='choice in poll.choices'>
