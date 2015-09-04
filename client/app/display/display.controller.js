@@ -35,6 +35,8 @@ angular.module('voteAppApp')
       data.labels.push(pollChoices.name);
       data.datasets[0].data.push(pollChoices.votes);
       });
+      $scope.urlPollName = encodeURIComponent($scope.poll.title);
+      $scope.urlUserName = encodeURIComponent($scope.poll.user);
       runChart();
     });
 
@@ -46,9 +48,7 @@ angular.module('voteAppApp')
         myBarChart.datasets[0].bars[$scope.formData.selection].value = $scope.poll.choices[$scope.formData.selection].votes;
         myBarChart.update();
 
-        $http.put('/api/polls/' + pollid, $scope.poll)
-          .success(function(poll) {
-        });
+        $http.put('/api/polls/' + pollid, $scope.poll);
       }
     };
 
