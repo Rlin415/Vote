@@ -24,7 +24,7 @@ angular.module('voteAppApp')
         ]
     };
     var runChart = function() {
-      ctx = document.getElementById("myBarChart").getContext("2d");
+      ctx = document.getElementById('myBarChart').getContext('2d');
       myBarChart = new Chart(ctx).Bar(data);
     };
 
@@ -46,8 +46,8 @@ angular.module('voteAppApp')
         myBarChart.datasets[0].bars[$scope.formData.selection].value = $scope.poll.choices[$scope.formData.selection].votes;
         myBarChart.update();
 
-        $http.patch('/api/polls/' + pollid, {choices: [{name: $scope.poll.choices[$scope.formData.selection].name, votes: $scope.poll.choices[$scope.formData.selection].votes}]}).then(function(poll) {
-          $scope.poll = poll
+        $http.put('/api/polls/' + pollid, $scope.poll)
+          .success(function(poll) {
         });
       }
     };

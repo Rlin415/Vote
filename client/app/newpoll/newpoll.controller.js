@@ -12,7 +12,7 @@ angular.module('voteAppApp')
     };
 
     $scope.removeChoice = function(index) {
-      $scope.placeHolders.splice(index, 1);
+      $scope.choices.splice(index, 1);
     };
 
     $scope.addPoll = function() {

@@ -5,7 +5,6 @@ angular.module('voteAppApp')
     $scope.getCurrentUser = Auth.getCurrentUser();
 
     $http.get('/api/polls/all/' + $scope.getCurrentUser._id).success(function(Polls) {
-      console.log(Polls);
       $scope.polls = Polls;
     });
 
