@@ -1,5 +1,9 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+
 <header>
   <div class='jumbotron'>
     <h1>Check Out Your Live Polls!</h1>
@@ -18,6 +22,7 @@
       <ul class='nav nav-tabs nav-stacked col-sm-12' ng-repeat="poll in polls | orderBy:'-created'">
         <li>
           <a ng-href="{{'/' + poll.user + '/' + poll._id}}">{{poll.title}}</a>
+          <i style='cursor:pointer; color:indianred' ng-click='deletePoll(poll)' class='fa fa-times'></i>
         </li>
       </ul>
     </div>
