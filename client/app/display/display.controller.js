@@ -48,8 +48,9 @@ angular.module('voteAppApp')
         myBarChart.datasets[0].bars[$scope.formData.selection].value = $scope.poll.choices[$scope.formData.selection].votes;
         myBarChart.update();
 
-        $http.put('/api/polls/' + pollid, $scope.poll);
+        $http.patch('/api/polls/' + pollid, $scope.poll).success(function(poll) {
+          console.log(poll);
+        });
       }
     };
-
   });

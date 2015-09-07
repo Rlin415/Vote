@@ -51,14 +51,11 @@ exports.create = function(req, res) {
 // Updates an existing poll in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
-  Poll.findById(req.params.id, function (err, poll) {
-    if (err) { return handleError(res, err); }
-    if(!poll) { return res.status(404).send('Not Found'); }
-    var updated = _.merge(poll, req.body);
-    updated.save(function (err) {
-      if (err) { return handleError(res, err); }
-      return res.status(200).json(poll);
-    });
+  var query = {_id: req.params.id};
+  var update = req.body;
+  Poll.update(query, update, function(err, poll) {
+    if(err) { return handleError(res, err); }
+      res.status(201).json(poll);
   });
 };
 
