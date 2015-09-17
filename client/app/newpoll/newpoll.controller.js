@@ -30,7 +30,7 @@ angular.module('voteAppApp')
         $scope.placeHolders = ['Seattle', 'Portland'];
         $scope.pollName = '';
         $scope.choices = [];
-        window.location.href = '/mypolls'
+        window.location.href = '/mypolls';
       });
     };
   });
